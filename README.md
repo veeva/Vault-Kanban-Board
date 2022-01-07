@@ -115,7 +115,7 @@ in the /vault-kanban-board/backend/target/ folder.
 3. For **Dashboard: Prioritization**, **Dashboard: Security Profiles**, and **Dashboard: User Type**, click **Edit** and 
    replace the **{CloudFront URL}** with the CloudFront Distribution domain name that was previously recorded.
 
-Additional reference document can be found on our [Developer Portal](https://developer.veevavault.com/sdk/#vault-java-sdk-overview) and in our [Javadocs](https://repo.veevavault.com/javadoc/vault-sdk-api/21.3.0/docs/api/index.html).
+Additional reference documents can be found on our [Developer Portal](https://developer.veevavault.com/sdk/#vault-java-sdk-overview) and in our [Javadocs](https://repo.veevavault.com/javadoc/vault-sdk-api/21.3.0/docs/api/index.html).
    
 
 
