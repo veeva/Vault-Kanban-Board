@@ -30,8 +30,8 @@ Access Request records, instead of editing and saving the actual record in Vault
 ## Setup
 ### Prerequisites
 1. An AWS account. If you don't have one sign up for an account at [AWS Free Tier](https://aws.amazon.com/free/free-tier/).
-2. Download the [executable jar file](https://gitlab.veevadev.com/veevavaultdevsupport/vault-kanban-board/-/blob/Isak/vault-kanban-board-0.2.jar).
-3. Import [Vault Package](https://gitlab.veevadev.com/veevavaultdevsupport/vault-kanban-board/-/blob/Isak/KANBAN-BOARD-CONFIG.vpk) to create necessary components.
+2. Download the [executable jar file](https://github.com/veeva/Vault-Kanban-Board/blob/main/vault-kanban-board-1.0.jar).
+3. Import [Vault Package](https://github.com/veeva/Vault-Kanban-Board/blob/main/KANBAN-BOARD-CONFIG.vpk) to create necessary components.
 4. Install [Nodejs](https://nodejs.org/en/) and [Yarn package manager](https://yarnpkg.com/getting-started/install). Depending on the installation, the following command may need to be executed:
 >yarn add env-cmd
 5. [Download](https://maven.apache.org/download.cgi) and [Install](https://maven.apache.org/install.html) Maven.
