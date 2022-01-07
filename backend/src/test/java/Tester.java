@@ -5,7 +5,7 @@ public class Tester {
 
 	public static void main(String[] args) {
 
-		String vaultDNS = "sb-vpsma-platform-limited.veevavault.com";
+		String vaultDNS = "verteobiotech.veevavault.com";
 		String sessionId = "CCF16FD82F718FA276DCE408FB698745B04DD36BCDE828C3AE3C063EC6F745AA55601AB414A3DC9F5F44DF422DE24D33290A3EE7A252A986EE62C5475F5EB31A";
 
 		testGetKanban(vaultDNS, sessionId);
