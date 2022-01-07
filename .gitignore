@@ -12,7 +12,6 @@ src/test/resources/test.properties
 
 #IntelliJ
 .idea/
-Vault-SDK-IntelliJ-Plugin.json
 
 #Eclipse
 .eclipse
