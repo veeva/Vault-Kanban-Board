@@ -38,15 +38,7 @@ Access Request records, instead of editing and saving the actual record in Vault
 
 The project contains a [Vault Packages (VPK)](https://vaulthelp2.vod309.com/wordpress/admin-user-help/admin-vault-loader/using-configuration-migration-packages/#how_to_import_validate_packages) in the "deploy-vpk" directory with the 
 necessary configuration and Vault Java SDK code.
-### Packaging
-#### Creating Frontend Images
-1. Open terminal and navigate to /vault-kanban-board/frontend/
-2. To build the envrionment execute the following command:
-   1. For sandbox deployments use: **yarn build:sbx**
-   2. For production deployments use: **yarn build**
-3. Once the build execution has completed, there will be a new folder created name vault-kanban-board/frontend/build. The files within this
-folder will be used when creating the S3 bucket.
-#### Creating Backend Package
+### Creating Backend Package
 **Note**: An executable jar file is present in the project, so this step is only needed if additional changes were made within the code
 and compilation and packaging is necessary.
 
@@ -65,9 +57,6 @@ in the /vault-kanban-board/backend/target/ folder.
 3. Leave the other configuration settings to their default values and click
    **Create Bucket**. 
 4. Record the bucket name for future reference.
-5. Click **Upload**.
-6. Select all the files from the /vault-kanban-board/frontend/build folder to the S3 bucket.
-7. Click **Upload**.
 #### Create AWS CloudFront Distribution
 1. In the [Amazon CloudFront console](https://console.aws.amazon.com/cloudfront/), click **Create distribution**.
 2. Configure the CloudFront distribution:
@@ -108,6 +97,18 @@ in the /vault-kanban-board/backend/target/ folder.
 11. Configure the environment variable:
      - Click **Add environment variable** with the **Key** as **LOG_LEVEL** and **Value** as **DEBUG**
 12. Leave all other environment variable settings to their default values and clikc **Save**.
+### Creating Frontend Images
+1. Replace the **{INSERT_API_GATEWAY_DNS}** with the AWS API Gateway DNS in the **env** files
+2. Open terminal and navigate to /vault-kanban-board/frontend/
+3. To build the environment execute the following command:
+    1. For sandbox deployments use: **yarn build:sbx**
+    2. For production deployments use: **yarn build**
+4. Once the build execution has completed, there will be a new folder created name vault-kanban-board/frontend/build.
+5. Navigate to the previously created AWS S3 Bucket.
+6. Click the **Upload** button in the **Objects** tab.
+7. Click **Add files**, and select all the single files in the /build folder.
+8. Click **Add folder** and select the **static** folder within the /build folder.
+9. Click **Upload**
 
 #### Vault Web Tab
 1. Log in to your Vault environment and click on the gear icon to go to the Admin side of your Vault.
