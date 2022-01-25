@@ -53,7 +53,7 @@ in the /vault-kanban-board/backend/target/ folder.
    - For Bucket name, enter **vsdk-kanban-board-aws-s3-bucket**.
    - For **Region**, choose your Region.
    - For **Default encryption**, enable **Server-side encryption** and select **Amazon S3 key (SSE-S3)** for 
-   **Encryption key type**
+   **Encryption key type**.
 3. Leave the other configuration settings to their default values and click
    **Create Bucket**. 
 4. Record the bucket name for future reference.
@@ -89,26 +89,40 @@ in the /vault-kanban-board/backend/target/ folder.
     - For **Security**, select **Open**.
     - Enable **Cross-origin resource sharing(CORS)**.
 6. Leave the other configuration settings to their default values and click
-   **Add**. 
+   **Add**.
 7. In the **Code** tab, next to the **Code source** section label, for **Upload from** select **.zip or .jar file**.
 8. Click **Upload** and select the vault-kanban-board-0.2.jar file provided or one that was previously packaged.
 9. Click **Save**.
-10. In the **Configuration** tab, navigate to the **Environment variables** section and click **Edit**. 
-11. Configure the environment variable:
-     - Click **Add environment variable** with the **Key** as **LOG_LEVEL** and **Value** as **DEBUG**
-12. Leave all other environment variable settings to their default values and clikc **Save**.
+10. In the **Runtime settings** section, click **Edit**
+11. For the **Handler** field, replace the existing value with **com.veeva.vault.handler.LambdaHandler::handleRequest**
+12. In the **Configuration** tab, navigate to the **Environment variables** section and click **Edit**. 
+13. Configure the environment variable:
+     - Click **Add environment variable** with the **Key** as **LOG_LEVEL** and **Value** as **INFO**
+14. Leave all other environment variable settings to their default values and click **Save**.
+15. Within the same **Configuration** tab, navigate to the **Triggers** section.
+16. Click the **API Gateway** record.
+17. Within the **API Gateway** record page, navigate to the **Develop** section and click the **CORS** sub-section.
+18. In the **Configure CORS** section, click **Configure**.
+19. Configure the following sections:
+    - In the **Access-Control-Allow-Origin** field, add * and **http://localhost:3000** values.
+    - In the **Access-Control-Allow-Headers** field, add **accept**, **access-control-allow-origin**, **authorization**,
+      and **content-type** values.
+    - In the **Access-Control-Allow-Methods** field, add * value.
+20. Leave all other environment variable settings to their default values and click **Save**.
 ### Creating Frontend Images
-1. Replace the **{INSERT_API_GATEWAY_DNS}** with the AWS API Gateway DNS in the **env** files
+1. Replace the **{INSERT_API_GATEWAY_DNS}** with the previously created AWS API Gateway endpoint in the **env** files
 2. Open terminal and navigate to /vault-kanban-board/frontend/
 3. To build the environment execute the following command:
-    1. For sandbox deployments use: **yarn build:sbx**
-    2. For production deployments use: **yarn build**
+   - For sandbox deployments use: 
+        >yarn build:sbx
+   - For production deployments use: 
+        >yarn build
 4. Once the build execution has completed, there will be a new folder created name vault-kanban-board/frontend/build.
 5. Navigate to the previously created AWS S3 Bucket.
 6. Click the **Upload** button in the **Objects** tab.
 7. Click **Add files**, and select all the single files in the /build folder.
 8. Click **Add folder** and select the **static** folder within the /build folder.
-9. Click **Upload**
+9. Click **Upload**.
 
 #### Vault Web Tab
 1. Log in to your Vault environment and click on the gear icon to go to the Admin side of your Vault.
