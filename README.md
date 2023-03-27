@@ -1,5 +1,5 @@
 # Vault Kanban Board Demo
-A [Web Tab](https://vaulthelp2.vod309.com/wordpress/?p=23516#defining_web_tabs) allows a user to view a web service that is
+A [Web Tab](https://platform.veevavault.help/en/gr/23516/#defining-web-tabs) allows a user to view a web service that is
 hosted externally from Vault. This page describes an example
 use case of an integration between Vault and an external
 system.
@@ -83,11 +83,12 @@ in the /vault-kanban-board/backend/target/ folder.
    **Create function**. 
 4. Once the function has been successfully created, click on **+Add trigger** in the **Function Overview** section.
 5. Configure the trigger:
-    - For **Trigger configuration**, select **API Gateway**.
-    - For **API**, select **Create an API**.
+    - For **Trigger configuration**, select a source of **API Gateway**.
+    - For **Intent**, select **Create a new API**.
     - For **API type**, select **HTTP API**.
     - For **Security**, select **Open**.
-    - Enable **Cross-origin resource sharing(CORS)**.
+    - Under additional settings, enable **Cross-origin resource sharing(CORS)**.
+    - Under additional settings, enter **$default** for the **Deployment stage** name.
 6. Leave the other configuration settings to their default values and click
    **Add**.
 7. In the **Code** tab, next to the **Code source** section label, for **Upload from** select **.zip or .jar file**.
@@ -108,9 +109,12 @@ in the /vault-kanban-board/backend/target/ folder.
     - In the **Access-Control-Allow-Headers** field, add **accept**, **access-control-allow-origin**, **authorization**,
       and **content-type** values.
     - In the **Access-Control-Allow-Methods** field, add * value.
-20. Leave all other environment variable settings to their default values and click **Save**.
+20. Within the **API Gateway** record page, navigate to the **Develop** section and click the **Integrations** sub-section.
+21. Select the **Manage integrations** tab, and click your AWS Lambda integration.
+22. Click **Edit**, and set the Payload format version to 2.0.
+23. Click **Save**, then close out of the API Gateway and Lambda Function.
 ### Creating Frontend Images
-1. Replace the **{INSERT_API_GATEWAY_DNS}** with the previously created AWS API Gateway endpoint in the **env** files
+1. Replace the **{INSERT_API_GATEWAY_DNS}** with the previously created AWS API Gateway endpoint in the **env** files.
 2. Open terminal and navigate to /vault-kanban-board/frontend/
 3. To build the environment execute the following command:
    - For sandbox deployments use: 
@@ -130,8 +134,4 @@ in the /vault-kanban-board/backend/target/ folder.
 3. For **Dashboard: Prioritization**, **Dashboard: Security Profiles**, and **Dashboard: User Type**, click **Edit** and 
    replace the **{CloudFront URL}** with the CloudFront Distribution domain name that was previously recorded.
 
-Additional reference documents can be found on our [Developer Portal](https://developer.veevavault.com/sdk/#vault-java-sdk-overview) and in our [Javadocs](https://repo.veevavault.com/javadoc/vault-sdk-api/21.3.0/docs/api/index.html).
-   
-
-
-
+Additional reference documents can be found on our [Developer Portal](https://developer.veevavault.com/sdk/#vault-java-sdk-overview) and in our [Javadocs](https://repo.veevavault.com/).
