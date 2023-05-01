@@ -32,7 +32,7 @@ Access Request records, instead of editing and saving the actual record in Vault
 1. An AWS account. If you don't have one sign up for an account at [AWS Free Tier](https://aws.amazon.com/free/free-tier/).
 2. Download the [executable jar file](https://github.com/veeva/Vault-Kanban-Board/blob/main/vault-kanban-board-1.0.jar).
 3. Import [Vault Package](https://github.com/veeva/Vault-Kanban-Board/blob/main/KANBAN-BOARD-CONFIG.vpk) to create necessary components.
-4. Install [Nodejs](https://nodejs.org/en/) and [Yarn package manager](https://yarnpkg.com/getting-started/install). Depending on the installation, the following command may need to be executed:
+4. Install [Nodejs](https://nodejs.org/en/) and [Yarn package manager](https://yarnpkg.com/getting-started/install). Depending on the installation, the following command may need to be executed in the /frontend folder:
 >yarn add env-cmd
 5. [Download](https://maven.apache.org/download.cgi) and [Install](https://maven.apache.org/install.html) Maven.
 
@@ -44,7 +44,7 @@ and compilation and packaging is necessary.
 
 1. Open the terminal and navigate to /vault-kanban-board/backend/ folder.
 2. Execute the following for either sandbox or production: **mvn clean compile package**.
-3. Once the packaging has completed, take note of the vault-kanban-board-0.2.jar file that was generated and that is located
+3. Once the packaging has completed, take note of the vault-kanban-board-0.1.jar file that was generated and that is located
 in the /vault-kanban-board/backend/target/ folder.
 ### Create AWS Services
 #### Create AWS S3 Bucket
@@ -111,10 +111,10 @@ in the /vault-kanban-board/backend/target/ folder.
     - In the **Access-Control-Allow-Methods** field, add * value.
 20. Within the **API Gateway** record page, navigate to the **Develop** section and click the **Integrations** sub-section.
 21. Select the **Manage integrations** tab, and click your AWS Lambda integration.
-22. Click **Edit**, and set the Payload format version to 2.0.
+22. Click **Edit**, and under Advanced Settings set the Payload format version to 2.0.
 23. Click **Save**, then close out of the API Gateway and Lambda Function.
 ### Creating Frontend Images
-1. Replace the **{INSERT_API_GATEWAY_DNS}** with the previously created AWS API Gateway endpoint in the **env** files.
+1. In the **env** files, replace **{INSERT_API_GATEWAY_DNS}** with the API endpoint of the previously created AWS API Gateway. This can be found on the Triggers section of your Lambda function, labeled "API endpoint" for the specific API Gateway you created.
 2. Open terminal and navigate to /vault-kanban-board/frontend/
 3. To build the environment execute the following command:
    - For sandbox deployments use: 
