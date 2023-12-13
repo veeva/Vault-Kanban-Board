@@ -4,8 +4,6 @@ import com.veeva.vault.util.Environment;
 import com.veeva.vault.model.IntegrationRequest;
 import com.veeva.vault.model.IntegrationResponse;
 import com.veeva.vault.vapil.api.client.VaultClient;
-import com.veeva.vault.vapil.api.client.VaultClientBuilder;
-import com.veeva.vault.vapil.api.client.VaultClientId;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -36,14 +34,9 @@ public class IntegrationHandler {
 			logger.debug("board : " + integrationRequest.getBodyParams().getBoard());
 
 			if (integrationRequest.getBodyParams().getVaultDNS() != null && integrationRequest.getBodyParams().getSessionId() != null) {
-				VaultClientId vaultClientId = new VaultClientId(
-						"veeva",
-						"vault",
-						"devsupport",
-						true,
-						"vault-kanban-board");
+                String vaultClientId = "veeva-vault-devsupport-vault-kanban-board";
 
-				vaultClient = VaultClientBuilder
+				vaultClient = VaultClient
 						.newClientBuilder(VaultClient.AuthenticationType.SESSION_ID)
 						.withVaultClientId(vaultClientId) //required
 						.withVaultDNS(integrationRequest.getBodyParams().getVaultDNS() ) //required
